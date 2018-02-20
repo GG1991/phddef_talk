@@ -1,0 +1,63 @@
+\documentclass{standalone}
+
+\begin{document}
+
+\begin{tikzpicture}[>=latex,node distance=0pt, line width=1.25mm]
+
+    %\draw [gray!50]  (6,15)--(13,1)--(26,6)--(21,23)--(12,20) -- cycle;
+    \draw [black] plot [smooth cycle] coordinates {(6,15) (13,1) (26,6) (21,23) (12,20)};
+
+    \begin{scope}[xshift = 4 cm]
+
+    \foreach \y [count=\n]in {8,10,12,14}{ 
+       \foreach \x [count=\n]in {8,10,12,14}{ 
+         \begin{scope}[yshift = \y cm,xshift = \x cm,start chain=going right]
+           \draw (0,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
+           \filldraw[fill=black!40!white,draw=black] (1,1) circle (0.5cm);
+         \end{scope}
+       }
+    }
+
+  \draw[line width=0.5mm] (15,15.5) -- ++(3,0);
+  \draw[line width=0.5mm] (15,14.5) -- ++(3,0);
+  \draw[line width=0.5mm] (18,14.5) -- ++(0,1);
+  \draw[{Latex[length=5mm,width=4mm]}-,line width=0.5mm] (18,14.5) -- ++(0,-1);
+  \draw[{Latex[length=5mm,width=4mm]}-,line width=0.5mm] (18,15.5) --
+  node[left,rotate=0,scale=3] {$\overline{\ell}$}  ++(0,2);
+
+  %\draw[{Latex[length=5mm,width=4mm]}-{Latex[length=5mm,width=4mm]},line width=0.5mm] 
+  %(30,0.7) --  node[left,rotate=0,scale=1] {$\overline{L}$} ++(0,22.9);
+
+  \filldraw[fill=black,draw=black] (5,12) circle (0.25cm);
+  \filldraw[fill=black,draw=black] (6,12) circle (0.25cm);
+  \filldraw[fill=black,draw=black] (7,12) circle (0.25cm);
+
+  \filldraw[fill=black,draw=black] (17,12) circle (0.25cm);
+  \filldraw[fill=black,draw=black] (18,12) circle (0.25cm);
+  \filldraw[fill=black,draw=black] (19,12) circle (0.25cm);
+
+  \filldraw[fill=black,draw=black] (12,5) circle (0.25cm);
+  \filldraw[fill=black,draw=black] (12,6) circle (0.25cm);
+  \filldraw[fill=black,draw=black] (12,7) circle (0.25cm);
+
+  \filldraw[fill=black,draw=black] (12,17) circle (0.25cm);
+  \filldraw[fill=black,draw=black] (12,18) circle (0.25cm);
+  \filldraw[fill=black,draw=black] (12,19) circle (0.25cm);
+
+  \end{scope}
+
+  \draw[line width=0.5mm] (19,23.6) -- ++(11,0);
+  \draw[line width=0.5mm] (15,0.7) -- ++(15,0);
+  \draw[{Latex[length=5mm,width=4mm]}-{Latex[length=5mm,width=4mm]},line width=0.5mm] 
+  (30,0.7) --  node[left,rotate=0,scale=5] {$\overline{L}$} ++(0,22.9);
+
+
+  \node[draw=none,fill=none,scale=5] at (40,18) {$\overline{L}\approx\SI{1.0}{\meter} \quad
+  \overline{\ell}\approx\SI{1.0}{\nano\meter}$};
+  \node[draw=none,fill=none,scale=5] at (40,12) {$\eta = \frac{\overline{L}}{\overline{\ell}} \approx \SI{1.0e9}{}$};
+  \node[draw=none,fill=none,scale=5] at (40,6) {$\eta^3 \approx \SI{1.0e27}{}$};
+
+\end{tikzpicture}
+
+\end{document}
+

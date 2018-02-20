@@ -1,0 +1,44 @@
+\documentclass{standalone}
+
+\begin{document}
+
+\begin{tikzpicture}
+   \begin{scope}[scale=0.6, yshift=2cm]
+   \begin{axis}[domain=-3:3, ylabel = $E$, ymin = -2]
+    \addplot[no marks] {x^2};
+    \addplot[only marks,mark=*,blue] plot coordinates {(0,0) (2,4)};
+   \end{axis}
+   \node at (3.5,.5) {FE directly};
+   \node at (3.5,3) {FE$^2$ method};
+   \end{scope}
+
+  \node at (7.6,4) {In FE$^2$ method $E \uparrow$ respect to FE directly};
+  \node at (7,3) {$E\approx\frac{1}{2}\sigma:\epsilon$};
+  \node at (5,-1) {
+  \begin{varwidth}{\linewidth}
+  \begin{itemize}
+      \item uniform strains  $\Rightarrow$ if $\epsilon$ is fixed $\sigma\uparrow \Rightarrow \mathbb{C}\uparrow$
+      \item uniform stresses  $\Rightarrow$ if $\sigma$ is fixed $\epsilon\uparrow \Rightarrow \mathbb{C}\downarrow$
+      \item peridic
+  \end{itemize}
+  \end{varwidth}
+  };
+
+  \begin{scope}[scale=0.1,xshift = 70cm,yshift = -8cm]
+  \draw [black] plot [smooth cycle] coordinates {(6,15) (13,1) (26,6) (21,23) (12,20)};
+  \begin{scope}[scale=1,xshift = 4cm,yshift = -2cm]
+     \foreach \y [count=\n]in {8,10,12,14,16}{ 
+     \foreach \x [count=\n]in {8,10,12,14,16}{ 
+     \begin{scope}[yshift = \y cm,xshift = \x cm,start chain=going right]
+       \draw (0,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
+       %\filldraw[fill=black!40!white,draw=black] (1,1) circle (0.5cm);
+     \end{scope}
+     }
+  }
+  \filldraw[fill=black!40!white,draw=black] (13cm,13cm) circle (0.5cm);
+  \end{scope}
+  \end{scope}
+
+  \end{tikzpicture}
+
+\end{document}

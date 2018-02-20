@@ -1,0 +1,14 @@
+\documentclass{standalone}
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=4cm]
+
+    \node[inner sep=0pt, scale=0.1] (rve) at (0,0) {\includegraphics[width=1.4\textwidth]{figures/front_exp_0-crop.pdf}};
+    \node[inner sep=0pt, scale=0.1] (rve) at (2,0) {\includegraphics[width=1.4\textwidth]{figures/front_exp_1-crop.pdf}};
+    \node[inner sep=0pt, scale=0.1] (rve) at (4,0) {\includegraphics[width=1.4\textwidth]{figures/front_exp_2-crop.pdf}};
+    \node[inner sep=0pt, scale=0.25] (rve) at (2,2.2) {\includegraphics[width=1.4\textwidth]{figures/prob_paper_2.pdf}};
+
+ \end{tikzpicture}
+
+\end{document}

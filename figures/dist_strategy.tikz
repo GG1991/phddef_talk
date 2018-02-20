@@ -1,0 +1,88 @@
+\documentclass{standalone}
+
+\begin{document}
+
+\tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer
+sep=0pt}, cross/.default={2pt}}
+
+\begin{tikzpicture}[node distance=4cm]
+  \tikzstyle{mpi} = [fill=red,draw=red,text=black,minimum size=1cm]
+  \tikzstyle{openmp} = [fill=none,draw=red,text=black,minimum size=1cm]
+
+  \node[mpi] (MPI_0) at (2,10) {M$_0$};
+  \node[mpi] (MPI_1) [right of = MPI_0] {M$_1$};
+  \node[mpi] (MPI_2) [right of = MPI_1] {M$_2$};
+  \node[mpi] (MPI_3) [right of = MPI_2] {M$_3$};
+
+  \node[mpi] (MPI_4) at (2,6) {$\mu_4$};
+  \node[mpi] (MPI_5) [right of = MPI_4] {$\mu_5$};
+  \node[mpi] (MPI_6) [right of = MPI_5] {$\mu_6$};
+  \node[mpi] (MPI_7) [right of = MPI_6] {$\mu_7$};
+
+  \node[openmp] (OpenMP_0) [below left = 2cm and 0cm of MPI_4] {$\mu_{4,0}$};
+  \node[openmp] (OpenMP_1) [below right = 2cm and 0cm of MPI_4] {$\mu_{4,1}$};
+  \node[openmp] (OpenMP_2) [below left = 2cm and 0cm of MPI_5] {$\mu_{5,0}$};
+  \node[openmp] (OpenMP_3) [below right = 2cm and 0cm of MPI_5] {$\mu_{5,1}$};
+  \node[openmp] (OpenMP_4) [below left = 2cm and 0cm of MPI_6] {$\mu_{6,0}$};
+  \node[openmp] (OpenMP_5) [below right = 2cm and 0cm of MPI_6] {$\mu_{6,1}$};
+  \node[openmp] (OpenMP_6) [below left = 2cm and 0cm of MPI_7] {$\mu_{7,0}$};
+  \node[openmp] (OpenMP_7) [below right = 2cm and 0cm of MPI_7] {$\mu_{7,1}$};
+
+  \node[draw=none,fill=none] [above right = 0.5cm and -2.5cm of OpenMP_4] {OpenMP};
+  \node[draw=none,fill=none] [above right = 5.0cm and -2.2cm of OpenMP_4] {MPI};
+
+  \draw [draw=red,-] (MPI_0) -- (MPI_1);
+  \draw [draw=red,-] (MPI_1) -- (MPI_2);
+  \draw [draw=red,-] (MPI_2) -- (MPI_3);
+
+  \draw [draw=red,-] (MPI_0) -- (MPI_4);
+  \draw [draw=red,-] (MPI_1) -- (MPI_5);
+  \draw [draw=red,-] (MPI_2) -- (MPI_6);
+  \draw [draw=red,-] (MPI_3) -- (MPI_7);
+
+  \draw [draw=red,-,dashed] (MPI_4) -- (OpenMP_0);
+  \draw [draw=red,-,dashed] (MPI_4) -- (OpenMP_1);
+
+  \draw [draw=red,-,dashed] (MPI_5) -- (OpenMP_2);
+  \draw [draw=red,-,dashed] (MPI_5) -- (OpenMP_3);
+
+  \draw [draw=red,-,dashed] (MPI_6) -- (OpenMP_4);
+  \draw [draw=red,-,dashed] (MPI_6) -- (OpenMP_5);
+
+  \draw [draw=red,-,dashed] (MPI_7) -- (OpenMP_6);
+  \draw [draw=red,-,dashed] (MPI_7) -- (OpenMP_7);
+
+  \begin{scope}[xshift=2cm]
+   \node[fill=none, draw=red, minimum size = 2cm] (square_0) at (-6,8) {};
+   \node[fill=red, draw=red, minimum size = 2cm] (square_1) at (-4,8) {};
+   \node[fill=none, draw=red, minimum size = 2cm] (square_2) at (-6,6) {};
+   \node[fill=none, draw=red, minimum size = 2cm] (square_3) at (-4,6) {};
+
+   \node[circle,fill=black, draw=black, minimum size = 0.05cm] (node_0) at (-5,9) {};
+   \node[circle,fill=black, draw=black, minimum size = 0.05cm] (node_1) at (-4,9) {};
+   \node[circle,fill=black, draw=black, minimum size = 0.05cm] (node_2) at (-3,9) {};
+   \node[circle,fill=black, draw=black, minimum size = 0.05cm] (node_3) at (-5,8) {};
+   \node[circle,fill=black, draw=black, minimum size = 0.05cm] (node_4) at (-4,8) {};
+   \node[circle,fill=black, draw=black, minimum size = 0.05cm] (node_5) at (-3,8) {};
+   \node[circle,fill=black, draw=black, minimum size = 0.05cm] (node_6) at (-5,7) {};
+   \node[circle,fill=black, draw=black, minimum size = 0.05cm] (node_7) at (-4,7) {};
+   \node[circle,fill=black, draw=black, minimum size = 0.05cm] (node_8) at (-3,7) {};
+
+   \draw [draw=black,-] (-5,9) -- (-3,9);
+   \draw [draw=black,-] (-5,8) -- (-3,8);
+   \draw [draw=black,-] (-5,7) -- (-3,7);
+
+   \draw [draw=black,-] (-5,9) -- (-5,7);
+   \draw [draw=black,-] (-4,9) -- (-4,7);
+   \draw [draw=black,-] (-3,9) -- (-3,7);
+
+   \node[fill=none, draw=none] (title_1) at (-2,8) {M$_i$};
+
+   \node[cross,minimum size=0.2cm] (gp_0) at (-4.5,8.5) {};
+   \node[cross,minimum size=0.2cm] (gp_1) at (-3.5,8.5) {};
+   \node[cross,minimum size=0.2cm] (gp_2) at (-4.5,7.5) {};
+   \node[cross,minimum size=0.2cm] (gp_3) at (-3.5,7.5) {};
+  \end{scope}
+ \end{tikzpicture}
+
+\end{document}

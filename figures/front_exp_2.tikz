@@ -1,0 +1,13 @@
+\documentclass{standalone}
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=4cm]
+
+    \node[inner sep=0pt, scale=0.3] at (0,0) {\includegraphics[width=1.4\textwidth]{figures/res_paper_2.pdf}};
+    \node[inner sep=0pt, scale=0.1] at (4,1) {\includegraphics[width=1.4\textwidth]{figures/fig_direct-crop.pdf}};
+    \node[inner sep=0pt, scale=0.1] at (4,-1) {\includegraphics[width=1.4\textwidth]{figures/fig_homog_us-crop.pdf}};
+
+ \end{tikzpicture}
+
+\end{document}
