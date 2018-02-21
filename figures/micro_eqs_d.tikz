@@ -91,6 +91,8 @@ sep=0pt}, cross/.default={2pt}}
     node[above, scale=10] {$\overline{\bm{\sigma}}$}
     ++(22,+2);
 
+    \node[scale=8,draw=black] at (26,-4) {Homogenization};
+    \node[scale=8,draw=black] at (26,28) {Localization};
     \node[scale=8] at (56,-4) {$\overline{\bm{\sigma}} = \langle \bm{\sigma} \rangle= \frac{1}{V} \int_{V} \bm{\sigma} \, dV$} ;
     \node[scale=8] at (56,28) {$\frac{1}{V} \int_{V} \bm{\epsilon} \, dV = \langle \bm{\epsilon} \rangle = \overline{\bm{\epsilon}}$} ;
     \node[scale=8] at (70,15) {$
