@@ -2,42 +2,35 @@
 
 \begin{document}
 
+\tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer
+sep=0pt}, cross/.default={2pt}}
+
 \begin{tikzpicture}[>=latex,node distance=0pt, line width=1.25mm]
 
 % the h.m.s.
 
-    %\draw [gray!50]  (2,0) -- (13,1) -- (26,6) -- (15,23) -- (1,20) -- cycle;
+    \coordinate [draw=black,shift={(0,0)}] (0) at (6,15);
+    \coordinate [draw=black,shift={(0,0)}] (1) at (13,1);
+    \coordinate [draw=black,shift={(0,0)}] (2) at (26,6);
+    \coordinate [draw=black,shift={(0,0)}] (3) at (21,23);
+    \coordinate [draw=black,shift={(0,0)}] (4) at (17,10);
+    \draw [blue]  (0) -- (1) -- (2) -- (3) -- cycle;
+    \draw [blue]  (0) -- (4);
+    \draw [blue]  (1) -- (4);
+    \draw [blue]  (2) -- (4);
+    \draw [blue]  (3) -- (4);
+    \draw [blue]  (6,15) -- (13,1) -- (26,6) -- (21,23) -- cycle;
     \draw [black] plot [smooth cycle] coordinates {(6,15) (13,1) (26,6) (21,23)
     (12,20)};
-
-    \begin{scope}[yshift = 0 cm,xshift = 4 cm]
-
-    \foreach \y [count=\n]in {8,10,12,14}{ 
-       \foreach \x [count=\n]in {8,10,12,14}{ 
-         \begin{scope}[yshift = \y cm,xshift = \x cm,start chain=going right]
-           \draw (0,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
-           %\filldraw[fill=black!40!white,draw=black] (1,1) circle (0.5cm);
-         \end{scope}
-       }
-    }
-
-    \filldraw[fill=black,draw=black] (5,12) circle (0.25cm);
-    \filldraw[fill=black,draw=black] (6,12) circle (0.25cm);
-    \filldraw[fill=black,draw=black] (7,12) circle (0.25cm);
-
-    \filldraw[fill=black,draw=black] (17,12) circle (0.25cm);
-    \filldraw[fill=black,draw=black] (18,12) circle (0.25cm);
-    \filldraw[fill=black,draw=black] (19,12) circle (0.25cm);
-
-    \filldraw[fill=black,draw=black] (12,5) circle (0.25cm);
-    \filldraw[fill=black,draw=black] (12,6) circle (0.25cm);
-    \filldraw[fill=black,draw=black] (12,7) circle (0.25cm);
-
-    \filldraw[fill=black,draw=black] (12,17) circle (0.25cm);
-    \filldraw[fill=black,draw=black] (12,18) circle (0.25cm);
-    \filldraw[fill=black,draw=black] (12,19) circle (0.25cm);
-
-    \end{scope}
+    \node [fill=black, draw=none, circle, inner sep=0pt, minimum size=1.1cm,scale=1.0] at (0) {};
+    \node [fill=black, draw=none, circle, inner sep=0pt, minimum size=1.1cm,scale=1.0] at (1) {};
+    \node [fill=black, draw=none, circle, inner sep=0pt, minimum size=1.1cm,scale=1.0] at (2) {};
+    \node [fill=black, draw=none, circle, inner sep=0pt, minimum size=1.1cm,scale=1.0] at (3) {};
+    \node [fill=black, draw=none, circle, inner sep=0pt, minimum size=1.1cm,scale=1.0] at (4) {};
+    \node[cross,minimum size=1.0cm,scale=1.5] (gp_0) at (12,8) {};
+    \node[cross,minimum size=1.0cm,scale=1.5] (gp_0) at (15,16) {};
+    \node[cross,minimum size=1.0cm,scale=1.5] (gp_0) at (19,6) {};
+    \node[cross,minimum size=1.0cm,scale=1.5] (gp_0) at (21,12) {};
 
 % the r.v.e.
 
@@ -54,7 +47,8 @@
 
     \node[scale=8] at (15,-2) {macro-model} ;
     \node[scale=8] at (50,-2) {micro-model};
-    \node[scale=4] at (50,25) {$\langle\overline{\bm{\sigma}}\rangle 
+    \node[scale=4] at (50,25) {example : Mixture Theory};
+    \node[scale=4] at (50,23) {$\langle\overline{\bm{\sigma}}\rangle 
     = v_m \mathbb{C}_m\overline{\bm{\epsilon}} + v_i \mathbb{C}_i\overline{\bm{\epsilon}}$};
 
 
