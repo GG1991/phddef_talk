@@ -1,0 +1,36 @@
+\documentclass{standalone}
+
+\begin{document}
+
+\tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer
+sep=0pt}, cross/.default={2pt}}
+
+\begin{tikzpicture}[>=latex,node distance=0pt, line width=4mm]
+
+    \begin{scope}[yshift=7 cm, xshift=40cm, start chain=going right, scale=4.0]
+      \draw [fill=none] (-2,-5) --  (2,-5) --  (2,5) -- (-2,5) -- cycle;
+
+     \foreach \d in {1,2,3}{
+      \foreach \y in {2,4,5,7,8,8.2,8.5,9,9.5,9}{
+       \foreach \x in {2,4,5,7,8,8.5,9,9}{
+        \node [fill=blue, draw=black, circle, inner sep=0pt, minimum size=0.3cm,scale=3] at (rand*\x*0.2,rand*\y*0.5) {};
+       }
+      }
+     } 
+     \node [fill=none, draw=none, inner sep=0pt, minimum size=0.3cm,scale=10] at (-8.0,+5.5) {$\overline{\bm{v}}$};
+     \draw[-{Latex[length=40mm,width=35mm]},draw=Red] (-8.0,+4.8) -- (-1.8,+4.8) ;
+     \node [fill=blue, draw=black, circle, inner sep=0pt, minimum size=0.3cm,scale=3] at (-8.0,+4.8) {};
+    \end{scope}
+
+    %\draw[-{Latex[length=20mm,width=15mm]}] (8,23) ..  controls ++(10,+3) ..
+    %node[below, scale=10] {$\overline{\bm{v}}$} ++(20,-2);
+    \draw[{Latex[length=20mm,width=15mm]}-] (8,2) .. controls ++(10,-3) .. 
+    node[above, scale=10] {$\overline{\bm{T}}$}
+    ++(22,+2);
+
+    \node[scale=12] at (-9,3) {$\frac{1}{2}mv_{m}^2 = \frac{3}{2}k\overline{\bm{T}}$};
+
+\end{tikzpicture}
+
+\end{document}
+
