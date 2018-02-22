@@ -123,7 +123,6 @@ sep=0pt}, cross/.default={2pt}}
     \begin{array}{ll}
     \text{div } \bm{\sigma} = 0 \\
     \bm{\sigma} = \mathbb{C}\bm{\epsilon} \\
-    \bm{u} = \overline{\bm{\epsilon}}\cdot \bm{x} \text{ for } \bm{x} \in \Gamma_d^\mu \\ \Rightarrow 
     \langle \bm{\epsilon} \rangle = \overline{\bm{\epsilon}}\\
     \end{array}
     \right.
