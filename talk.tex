@@ -5,8 +5,8 @@
 
 \usetheme{Madrid}
 
-\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
 %\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
@@ -149,7 +149,16 @@ Barcelona Supercomputing Center\\Universitat Polit\`ecnica de Catalunya \\ % You
 \begin{frame}
 \frametitle{The best boundary conditions}
 \begin{figure}[!ht]
-\resizebox{0.6\linewidth}{!}{\input{figures/bc_idea.tikz}}
+\resizebox{0.6\linewidth}{!}{\input{figures/bc_idea_a.tikz}}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{The approximation}
+\begin{figure}[!ht]
+\resizebox{0.6\linewidth}{!}{\input{figures/bc_idea_b.tikz}}
 \end{figure}
 \end{frame}
 
@@ -210,6 +219,45 @@ $ \bm{\sigma}^+ \cdot \hat{n}  = \bm{\sigma}^- \cdot \hat{n}$
 %------------------------------------------------
 
 \begin{frame}
+\frametitle{Boundary conditions}
+
+\begin{minipage}[h]{0.49\linewidth}
+\begin{itemize}
+\item Uniform Strain: \\ $\bm{u} = \overline{\bm{\epsilon}} \cdot \bm{x} $
+  \begin{itemize}
+  \item Dirichlet
+  \end{itemize}
+  \vspace{0.5cm}
+\item Uniform Stress: \\$ \bm{\sigma} = \overline{\bm{\sigma}} $
+  \begin{itemize}
+  \item Lagrange multipliers
+  \end{itemize}
+  \vspace{0.5cm}
+\item Periodic \\
+$ \bm{u}^+ - \bm{u}^- = \overline{\bm{\epsilon}} \cdot (\bm{x}^+ - \bm{x}^-) $\\
+$ \bm{\sigma}^+ \cdot \hat{n}  = \bm{\sigma}^- \cdot \hat{n}$
+  \begin{itemize}
+  \item Lagrange multipliers
+  \item Unknowns elimination
+  \end{itemize}
+\end{itemize}
+\end{minipage}
+\begin{minipage}[h]{0.49\linewidth}
+\resizebox{1.1\linewidth}{!}{
+\begin{tikzpicture}[node distance=4cm]
+    \node[inner sep=0pt, scale=0.1] (rve) at (0,2) {\includegraphics[width=1.4\textwidth]{figures/unif_strain_exy.jpg}};
+    \node[inner sep=0pt, scale=0.1] (rve) at (0,1) {\includegraphics[width=1.4\textwidth]{figures/unif_stress_exy.jpg}};
+    \node[inner sep=0pt, scale=0.1] (rve) at (0,0) {\includegraphics[width=1.4\textwidth]{figures/periodic_exy.jpg}};
+    \node[inner sep=0pt, scale=0.6] (rve) at (1.1,1) {$\overline{\bm{\epsilon}} = \begin{bmatrix} 0 \\0 \\ \epsilon_{xy}\end{bmatrix}$};
+\end{tikzpicture}
+}
+\end{minipage}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
 \frametitle{The FE$^2$ multi-scale method}
 
 \begin{figure}[!ht]
@@ -226,13 +274,13 @@ $ \bm{\sigma}^+ \cdot \hat{n}  = \bm{\sigma}^- \cdot \hat{n}$
 \item There is no need of construct complex constitutive micro-models, i.e., it has lot of flexibility under
 micro-structure variations $\Rightarrow$ can be quicker for the design
 stage of pieces.
-\item Can give more accurate results than other methods.
+\item It can give more accurate results than other methods.
 \end{itemize}
 
 {\color{Red}Disadvantages}
 \begin{itemize}
-\item They are generally more computationally expensive than other multi-scale methods $\Rightarrow$ they need an efficient
-design and lot of computational power. 
+\item It is generally more computationally expensive than other multi-scale methods $\Rightarrow$ It needs an efficient
+design and a lot of computational power. 
 \end{itemize}
 \end{frame}
 

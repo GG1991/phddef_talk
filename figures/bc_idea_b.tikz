@@ -114,9 +114,15 @@ sep=0pt}, cross/.default={2pt}}
     \draw[{Latex[length=20mm,width=15mm]}-] (23,23) ..  controls ++(10,+3) ..
     node[below, scale=10] {$\overline{\bm{\sigma}}$} 
     ++(20,-2);
+    \draw[-{Latex[length=20mm,width=15mm]},dashed,dash pattern=on 0.2cm off 0.5cm,red, line width = 0.4cm] (23,2) .. controls ++(10,-3) .. 
+    node[above, scale=10] {$\overline{\bm{\epsilon}}$}
+    ++(22,+2);
+    \node [fill=none, scale=8, red] at (33,-3) {BC approx};
 
     \draw[-{Latex[length=20mm,width=15mm]}] (10,5) .. controls ++(-8,-8) .. ++(0,-10);
-    \draw[-{Latex[length=20mm,width=15mm]}] (30,-10) .. controls ++(20,0) .. node[below, scale=10] {BCs}  ++(20,15);
+    \draw[-{Latex[length=20mm,width=15mm]}] (30,-10) .. controls ++(20,0) .. node[below=1cm, scale=10] {BC exact}  ++(20,15);
+    \node[cross,minimum size=1.0cm,scale=3.5,red,line width=1.0cm] (gp_0) at (5,0) {};
+    \node[cross,minimum size=1.0cm,scale=3.5,red,line width=1.0cm] (gp_0) at (49.5,-5) {};
 
   \begin{scope}[scale=1,xshift = 0cm,yshift = -25cm]
   \draw [black] plot [smooth cycle] coordinates {(6,15) (13,1) (26,6) (21,23) (12,20)};
