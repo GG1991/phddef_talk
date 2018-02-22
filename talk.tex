@@ -40,7 +40,7 @@ Barcelona Supercomputing Center\\Universitat Polit\`ecnica de Catalunya \\ % You
 \medskip
 \textit{guido.giuntoli@bsc.es} % Your email address
 }
-\date{\today} % Date, can be changed to a custom date
+\date{February 26, 2018} % Date, can be changed to a custom date (\today)
 
 \begin{document}
 
@@ -147,26 +147,38 @@ Barcelona Supercomputing Center\\Universitat Polit\`ecnica de Catalunya \\ % You
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{The FE$^2$ multi-scale method}
-{\color{ForestGreen}Advantages}
-\begin{itemize}
-\item There is no need of construct complex constitutive micro-models, i.e., it has lot of flexibility under
-micro-structure variations $\Rightarrow$ can be quicker for the design
-stage of pieces.
-\item Can give more accurate results than other methods.
-\end{itemize}
-
-{\color{Red}Disadvantages}
-\begin{itemize}
-\item Generally are more computationally expensive than other multi-scale methods $\Rightarrow$ they need an efficient
-design and lot of computational power. 
-\end{itemize}
+\frametitle{The best boundary conditions}
+\begin{figure}[!ht]
+\resizebox{0.6\linewidth}{!}{\input{figures/bc_idea.tikz}}
+\end{figure}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{The FE$^2$ multi-scale method}
+\frametitle{Boundary conditions}
+
+\begin{minipage}[h]{0.49\linewidth}
+\begin{itemize}
+\item Uniform Strain: \\ $\bm{u} = \overline{\bm{\epsilon}} \cdot \bm{x} $
+  \vspace{0.5cm}
+\item Uniform Stress: \\$ \bm{\sigma} = \overline{\bm{\sigma}} $
+  \vspace{0.5cm}
+\item Periodic \\
+$ \bm{u}^+ - \bm{u}^- = \overline{\bm{\epsilon}} \cdot (\bm{x}^+ - \bm{x}^-) $\\
+$ \bm{\sigma}^+ \cdot \hat{n}  = \bm{\sigma}^- \cdot \hat{n}$
+\end{itemize}
+\end{minipage}
+\begin{minipage}[h]{0.49\linewidth}
+\resizebox{0.8\linewidth}{!}{\input{figures/micro_eqs_e.tikz}}
+\end{minipage}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Boundary conditions}
 
 \begin{minipage}[h]{0.49\linewidth}
 \begin{itemize}
@@ -190,9 +202,28 @@ $ \bm{\sigma}^+ \cdot \hat{n}  = \bm{\sigma}^- \cdot \hat{n}$
 \end{itemize}
 \end{minipage}
 \begin{minipage}[h]{0.49\linewidth}
-\resizebox{0.8\linewidth}{!}{\input{figures/micro_eqs_b.tikz}}
+\resizebox{0.8\linewidth}{!}{\input{figures/micro_eqs_e.tikz}}
 \end{minipage}
 
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{The FE$^2$ multi-scale method}
+{\color{ForestGreen}Advantages}
+\begin{itemize}
+\item There is no need of construct complex constitutive micro-models, i.e., it has lot of flexibility under
+micro-structure variations $\Rightarrow$ can be quicker for the design
+stage of pieces.
+\item Can give more accurate results than other methods.
+\end{itemize}
+
+{\color{Red}Disadvantages}
+\begin{itemize}
+\item Generally are more computationally expensive than other multi-scale methods $\Rightarrow$ they need an efficient
+design and lot of computational power. 
+\end{itemize}
 \end{frame}
 
 %------------------------------------------------
