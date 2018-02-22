@@ -1,0 +1,92 @@
+%------------------------------------------------------------
+Slide 1 (title page)
+
+The goal of this talk is to explain the work we have been done during the last year and what we plan to do in the next two
+years. This work is being done at the BSC in together with the UPC, Mariano Vázquez is my director, he works at BSC and
+Sergio Oller, is my co-director and he works at UPC. Thank everyone to come and I wish you to enjoy this presentation. 
+
+The objective of my work is to develop a high performance algorithm to deal with large scale problems involving
+composite materials, for example, design problems where we should prove that a specific aircraft part can resist the impact
+of an object.
+
+The method I will use it is called FE2 (fi-square) multi-scale method. This strange name is do to we perform two nested
+fe calculations in the process as I will explain.
+
+%------------------------------------------------------------
+Slide 2
+
+A composite material used in airplanes has more or less this heterogeneous structure. Obviously is more complex than
+this because this drawing lies only on the 2 dimensions. Here we have a piece made of two or more materials that we 
+consider homogeneous. They are joined together and this gives better properties than using only one of them for creating
+that piece.
+
+When we say that these material are homogeneous individually we mean that we know very well the constitutive laws that relates
+stress with strain for each. Also how they behave in the non-linear range.
+
+%------------------------------------------------------------
+Slide 3
+
+Particularly for aircraft composite material problems we have a very difficult issue to deal with. We know that the radius of the
+smallest fiber can be of the order of a micrometer and the size of a piece can be near 1 meter for the case of a wing
+panel. This means that if we want to solve directly by finite elements we would need approximately 1e6 in one of the
+directions and if we solve in 3 dimension 1e18 elements. 
+
+For sure we would like to store the solution in a vector, that would mean 1e19 bytes of memory...and only for storing
+the solution.
+
+This is a classical problem where the difference between scales makes impossible to solve by directly by the FEM.
+
+%------------------------------------------------------------
+Slide 4
+
+Fortunately there is a general procedure called multi-scale method that decompose the big and difficult problem into
+smaller ones using approximations.
+
+The procedure is relative simple. The idea is to use a coarse mesh to represent the macroscopic problem and at the time
+of calculating the constitutive relation at the integration points we use a microscopic model that returns the
+microscopic quantities, for example, the stress as a function of strain that is in the macro-level. 
+
+The micro-model should take into account enough details of the micro-structure for being accurate.
+
+There is a wide variety of these models and most of them are based on thermodynamic principles for working accurately or 
+even other physical principles and laws for being elaborated.
+
+%------------------------------------------------------------
+Slide 5
+
+The multi-scale method in which this work is focused on is the FE2 method. This involves in obtaining the microscopical quantities
+through a finite element calculation in the micro-scale. That why it is called FE2, because there 2 levels where finite
+elements calculation are performed : the macroscopic and microscopic level.
+
+%------------------------------------------------------------
+Slide 6
+
+%------------------------------------------------------------
+Slide 7
+
+%------------------------------------------------------------
+Slide 8
+
+%------------------------------------------------------------
+Slide 9
+
+%------------------------------------------------------------
+Slide 10
+
+%------------------------------------------------------------
+Slide 11
+
+%------------------------------------------------------------
+Slide 12
+
+%------------------------------------------------------------
+Slide 13
+
+%------------------------------------------------------------
+Slide 14
+
+%------------------------------------------------------------
+Slide 15
+
+
+
