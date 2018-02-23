@@ -13,7 +13,7 @@
 
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-\usepackage{amsmath, amsfonts, amsthm, mathrsfs,bm}
+\usepackage{amsmath, amsfonts, amsthm, mathrsfs, bm, bbm}
 \usepackage{xcolor}
 \usepackage{siunitx}
 \usepackage{tikz}
@@ -364,23 +364,6 @@ design and a lot of computational power.
 \begin{frame}
 \frametitle{Microscopic code design}
 
-\begin{figure}[!ht]
-\resizebox{1.0\linewidth}{!}{
-\begin{tikzpicture}[node distance=4cm]
-    \node[inner sep=0pt, scale=0.1] (rve) at (0,0) {\includegraphics[width=1.4\textwidth]{figures/periodic_exy.jpg}};
-    \node[inner sep=0pt, scale=1.0] (rve) at (3,0) {$t \approx \#_{gp-macro} \times t_{micro} $};
-    \draw[thick, OliveGreen] (3.9,-.5) rectangle (4.9,.5);
-\end{tikzpicture}
-}
-\end{figure}
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Microscopic code design}
-
 \textcolor{OliveGreen}{Constrains and approximations} :
 \begin{itemize}
   \item will use structured grids :
@@ -461,7 +444,7 @@ For each boundary condition type and algorithm test :
 \frametitle{Periodic BC case}
 
 \begin{tikzpicture}[node distance=4cm]
-    \node[inner sep=0pt, scale=1] (rve) at (-2,3) {
+    \node[inner sep=0pt, scale=1] (rve) at (0,0) {
      $\left\{
      \begin{array}{ll}
      \bm{f}_a(\bm{u}) = \bm{0} \\
@@ -470,10 +453,12 @@ For each boundary condition type and algorithm test :
      \end{array}
      \right.$
       };
+    \node[inner sep=0pt, scale=0.2] (rve) at (6,0) {\includegraphics[width=1.4\textwidth]{figures/periodic_exy.jpg}};
 \end{tikzpicture}
 
+\vspace{.4cm}
 Unknowns elimination
-\vspace{.2cm}
+\vspace{.4cm}
 
 \begin{tikzpicture}[node distance=4cm]
     \node[inner sep=0pt, scale=0.7] (rve) at (0,0) {$
@@ -489,10 +474,45 @@ Unknowns elimination
 \end{tikzpicture}
 
 Lagrange multipliers
-\vspace{.2cm}
+\vspace{.4cm}
 
 \begin{tikzpicture}[node distance=4cm]
     \node[inner sep=0pt, scale=0.7] (rve) at (0,1) {$
+    \begin{bmatrix}
+    K_{aa} & K_{a+} & K_{a-} &  \bm{0}\\
+    K_{+a} & K_{++} & K_{+-} &  \mathbbm{1}\\
+    K_{-a} & K_{-+} & K_{--} & -\mathbbm{1}\\
+    \bm{0}                                    & \mathbbm{1}                               & -\mathbbm{1}                              &  \bm{0}\\
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+    d\bm{u}_a \\
+    d\bm{u}_+ \\
+    d\bm{u}_- \\
+    d\bm{\lambda}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    \bm{f}_a(\bm{u}) \\
+    \bm{f}_b^+(\bm{u}) + \bm{\lambda} \\
+    \bm{f}_b^-(\bm{u}) - \bm{\lambda} \\
+    \bm{u}^{+} - \bm{u}^{-} - \bm{c}
+    \end{bmatrix}
+    $};
+\end{tikzpicture}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Periodic BC case}
+
+Unknowns elimination
+\vspace{.4cm}
+
+\begin{tikzpicture}[node distance=4cm]
+    \node[inner sep=0pt, scale=0.7] (rve) at (0,0) {$
      \begin{bmatrix}
      K_{aa}          & K_{a+} + K_{a-} \\
      K_{+a} + K_{-a} & K_{++} + K_{-+}  + K_{+-} + K_{--} \\
@@ -502,11 +522,12 @@ Lagrange multipliers
      =
      -\begin{bmatrix}\bm{f}_a(\bm{u}^{k-1}) \\ \bm{f}_b^+(\bm{u}^{k-1}) + \bm{f}_b^-(\bm{u}^{k-1}) \end{bmatrix}
     $};
+    \node[inner sep=0pt, scale=0.2] (rve) at (-2.3,-2) {\includegraphics[width=1.4\textwidth]{figures/periodic_exy.jpg}};
 \end{tikzpicture}
 
 \end{frame}
 
-%------------------------------------------------
+%----------------------------------------------------------------------------------------
 
 \begin{frame}
 \Huge{\centerline{The End}}
