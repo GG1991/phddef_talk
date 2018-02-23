@@ -27,7 +27,7 @@ sep=0pt}, cross/.default={2pt}}
     ++(22,+2);
 
     \node[scale=12] at (-9,3) {$\frac{1}{2}m\overline{\bm{v}}_{m}^2 = \frac{3}{2}k\overline{\bm{T}}$};
-    \node[scale=12] at (40,35) {$\overline{\bm{v}}_{m}^2 = \sum_j \overline{\bm{v}}_j^2$};
+    \node[scale=12] at (40,35) {$\overline{\bm{v}}_{m}^2 = \frac{1}{N}\sum_j \overline{\bm{v}}_j^2$};
 
 \end{tikzpicture}
 

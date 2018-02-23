@@ -4,11 +4,17 @@
 
 \begin{tikzpicture}[node distance=4cm]
 
-    \node[inner sep=0pt, scale=0.1] (rve) at (0,0) {\includegraphics[width=1.4\textwidth]{figures/front_exp_0-crop.pdf}};
-    \node[inner sep=0pt, scale=0.1] (rve) at (2,0) {\includegraphics[width=1.4\textwidth]{figures/front_exp_1-crop.pdf}};
-    \node[inner sep=0pt, scale=0.1] (rve) at (4,0) {\includegraphics[width=1.4\textwidth]{figures/front_exp_2-crop.pdf}};
-    \node[inner sep=0pt, scale=0.25] (rve) at (2,2.2) {\includegraphics[width=1.4\textwidth]{figures/prob_paper_2.pdf}};
-    \begin{scope}[xshift=3.45cm, yshift=2.64cm, start chain=going right,scale=0.19]
+    \node[inner sep=0pt, scale=0.1] (rve) at (-0.2,0)  {\includegraphics[width=1.4\textwidth]{figures/front_exp_0-crop.pdf}};
+    \node[inner sep=0pt, scale=0.6] (rve) at (-0.2,-1) {$\overline{\bm{\epsilon}}_1 = [\epsilon_{xy}\, 0 \, 0]\rightarrow\overline{\bm{\sigma}}_1$};
+    \node[inner sep=0pt, scale=0.1] (rve) at (2,0)  {\includegraphics[width=1.4\textwidth]{figures/front_exp_1-crop.pdf}};
+    \node[inner sep=0pt, scale=0.6] (rve) at (2,-1) {$\overline{\bm{\epsilon}}_2 = [0\,\epsilon_{xy}\,
+    0]\rightarrow\overline{\bm{\sigma}}_2$};
+    \node[inner sep=0pt, scale=0.1] (rve) at (4.2,0)  {\includegraphics[width=1.4\textwidth]{figures/front_exp_2-crop.pdf}};
+    \node[inner sep=0pt, scale=0.6] (rve) at (4.2,-1) {$\overline{\bm{\epsilon}}_3 = [0 \, 0\, \epsilon_{xy}]
+    \rightarrow\overline{\bm{\sigma}}_3$};
+    \node[inner sep=0pt, scale=0.25] (rve) at (1,2.2) {\includegraphics[width=1.4\textwidth]{figures/prob_paper_2.pdf}};
+    \node[inner sep=0pt, scale=1.0] (rve) at (4,2.2) {$\overline{\bm{\sigma}} = \overline{\mathbb{C}} : \overline{\bm{\epsilon}}$};
+    \begin{scope}[xshift=2.45cm, yshift=2.64cm, start chain=going right,scale=0.19]
       \coordinate [draw=black,shift={(0,0)}] (0) at (0,0);
       \coordinate [draw=black,shift={(0,0)}] (1) at (1.5,0);
       \coordinate [draw=black,shift={(0,0)}] (2) at (1.5,1.5);

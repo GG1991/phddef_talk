@@ -22,7 +22,7 @@
 \usetikzlibrary{shapes,calc}
 \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer
 sep=0pt}, cross/.default={2pt}}
-\usepackage{pgfplots}
+\usepackage{pgfplots, pgfplotstable}
 \usepackage{pgfgantt}
 \usepackage{varwidth}
 %\pgfplotsset{compat=1.13}
@@ -473,6 +473,7 @@ Unknowns elimination
     $};
 \end{tikzpicture}
 
+\vspace{.4cm}
 Lagrange multipliers
 \vspace{.4cm}
 
@@ -512,7 +513,7 @@ Unknowns elimination
 \vspace{.4cm}
 
 \begin{tikzpicture}[node distance=4cm]
-    \node[inner sep=0pt, scale=0.7] (rve) at (0,0) {$
+    \node[inner sep=0pt, scale=0.7] (rve) at (-0.3,0) {$
      \begin{bmatrix}
      K_{aa}          & K_{a+} + K_{a-} \\
      K_{+a} + K_{-a} & K_{++} + K_{-+}  + K_{+-} + K_{--} \\
@@ -522,7 +523,33 @@ Unknowns elimination
      =
      -\begin{bmatrix}\bm{f}_a(\bm{u}^{k-1}) \\ \bm{f}_b^+(\bm{u}^{k-1}) + \bm{f}_b^-(\bm{u}^{k-1}) \end{bmatrix}
     $};
-    \node[inner sep=0pt, scale=0.2] (rve) at (-2.3,-2) {\includegraphics[width=1.4\textwidth]{figures/periodic_exy.jpg}};
+    \node[inner sep=0pt, scale=0.1] (rve) at (5.5,0) {\includegraphics[width=1.4\textwidth]{figures/periodic_exy.jpg}};
+    \pgfplotstableread{figures/cg.dat}{\cg}
+    \pgfplotstableread{figures/cg_pd.dat}{\cgpd}
+    \begin{axis}[
+      xlabel=problem size,ylabel=time,
+      tick scale binop=\times,
+      y tick label style={/pgf/number format/.cd, set thousands separator={}, 1000 sep={}, precision=1, /tikz/.cd},
+      grid=both,
+      legend pos=north west,
+      at={(2cm,-4cm)},
+      scale=0.5
+    ]  
+    \addplot+[mark=*,mark options={scale=0.5},color=red  ] table [x index=0, y index=1] {\cg};\addlegendentry{CG};
+    \addplot+[mark=*,mark options={scale=0.5},color=green] table [x index=0, y index=1] {\cgpd};\addlegendentry{CG-PD};
+    \end{axis}
+    \begin{axis}[
+      xlabel=problem size,ylabel=iterations,
+      tick scale binop=\times,
+      y tick label style={/pgf/number format/.cd, 1000 sep={}, precision=1, /tikz/.cd},
+      grid=both,
+      legend pos=north west,
+      at={(-4cm,-4cm)},
+      scale=0.5
+    ]  
+    \addplot+[mark=*,mark options={scale=0.5},color=red  ] table [x index=0, y index=2] {\cg};\addlegendentry{CG};
+    \addplot+[mark=*,mark options={scale=0.5},color=green] table [x index=0, y index=2] {\cgpd};\addlegendentry{CG-PD};
+    \end{axis}
 \end{tikzpicture}
 
 \end{frame}
