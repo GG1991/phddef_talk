@@ -62,7 +62,7 @@ sep=0pt}, cross/.default={2pt}}
 % The short title appears at the bottom of every slide, the full title is only on the title page
 \title[Short title]{HPC-based FE$^2$ method implementation for large scale composite material problems}
 
-\author{G. Giuntoli, M. V\'azquez, S. Oller} % Your name
+\author{Student : Guido Giuntoli \\ Advisors : Mariano V\'azquez, Sergio Oller} % Your name
 \institute[BSC-UPC] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 Barcelona Supercomputing Center\\Universitat Polit\`ecnica de Catalunya \\ % Your institution for the title page
@@ -139,12 +139,12 @@ Barcelona Supercomputing Center\\Universitat Polit\`ecnica de Catalunya \\ % You
 
 %------------------------------------------------
 
-\begin{frame}
-\frametitle{A simple analogy}
-\begin{figure}[!ht]
-\resizebox{0.8\linewidth}{!}{\input{figures/tank.tikz}}
-\end{figure}
-\end{frame}
+%\begin{frame}
+%\frametitle{A simple analogy}
+%\begin{figure}[!ht]
+%\resizebox{0.8\linewidth}{!}{\input{figures/tank.tikz}}
+%\end{figure}
+%\end{frame}
 
 %------------------------------------------------
 
@@ -392,55 +392,6 @@ design and a lot of computational power.
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Working Plan}
-
-\begin{itemize}
-\item \textcolor{OliveGreen}{Short term goal} : \textbf{Improve  what more can be done the microscopic code}. 
-For each boundary condition type and algorithm test :
- \begin{itemize}
-  \item different solvers (pre-conditioners) and matrix storage formats.
-  \item different architectures and parallelization strategies.
- \end{itemize}
-
- \item \textcolor{Red}{Long term goal}: Solve a large problem with \textbf{Alya} :
- \begin{itemize}
-  \item couple the microscopic code with \textbf{Alya}.
-  \item select a real size non-linear problem and show that the strategy works.
- \end{itemize}
-\end{itemize}
-
-\begin{figure}[hhh!]
-\begin{center}
-\resizebox{10cm}{!}{
-
-\begin{ganttchart}[vgrid, hgrid]{1}{36}
-\gantttitle{2017}{12} 
-\gantttitle{2018}{12}
-\gantttitle{2019}{12}\\
-\gantttitlelist{1,...,36}{1}\\
-
-\ganttgroup{Training}{1}{5}\\
-
-\ganttgroup{FE$^2$ method implementation}{6}{36} \\
-\ganttbar{\textbf{microscopic code}}{6}{36} \\
-\ganttbar{\textbf{macroscopic code}}{6}{36} \\
-
-\ganttgroup{\textit{Alya}}{14}{36} \\
-\ganttbar{\textbf{microscopic code}}{14}{36} \\
-\ganttbar{Solve large problems}{25}{36} \\
-
-\ganttgroup{Thesis}{30}{36}
-
-\end{ganttchart}
-}
-\end{center}
-\end{figure}
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
 \frametitle{Periodic BC case}
 
 \begin{tikzpicture}[node distance=4cm]
@@ -557,7 +508,50 @@ Unknowns elimination
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-\Huge{\centerline{The End}}
+\frametitle{Working Plan}
+
+\begin{itemize}
+\item \textcolor{OliveGreen}{Short term goal} : \textbf{Improve  what more can be done the microscopic code}. 
+For each boundary condition type and algorithm test :
+ \begin{itemize}
+  \item different solvers (pre-conditioners) and matrix storage formats.
+  \item different architectures and parallelization strategies.
+ \end{itemize}
+
+ \item \textcolor{Red}{Long term goal}: Solve a large problem with \textbf{Alya} :
+ \begin{itemize}
+  \item couple the microscopic code with \textbf{Alya}.
+  \item select a real size non-linear problem and show that the strategy works.
+ \end{itemize}
+\end{itemize}
+
+\begin{figure}[hhh!]
+\begin{center}
+\resizebox{10cm}{!}{
+
+\begin{ganttchart}[vgrid, hgrid]{1}{36}
+\gantttitle{2017}{12} 
+\gantttitle{2018}{12}
+\gantttitle{2019}{12}\\
+\gantttitlelist{1,...,36}{1}\\
+
+\ganttgroup{Training}{1}{5}\\
+
+\ganttgroup{FE$^2$ method implementation}{6}{36} \\
+\ganttbar{\textbf{microscopic code}}{6}{36} \\
+\ganttbar{\textbf{macroscopic code}}{6}{36} \\
+
+\ganttgroup{\textit{Alya}}{14}{36} \\
+\ganttbar{\textbf{microscopic code}}{14}{36} \\
+\ganttbar{Solve large problems}{25}{36} \\
+
+\ganttgroup{Thesis}{30}{36}
+
+\end{ganttchart}
+}
+\end{center}
+\end{figure}
+
 \end{frame}
 
 %----------------------------------------------------------------------------------------

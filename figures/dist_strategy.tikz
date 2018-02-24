@@ -9,15 +9,15 @@ sep=0pt}, cross/.default={2pt}}
   \tikzstyle{mpi} = [fill=red,draw=red,text=black,minimum size=1cm]
   \tikzstyle{openmp} = [fill=none,draw=red,text=black,minimum size=1cm]
 
-  \node[mpi] (MPI_0) at (2,10) {M$_0$};
+  \node[mpi,fill=green!50] (MPI_0) at (2,10) {M$_0$};
   \node[mpi] (MPI_1) [right of = MPI_0] {M$_1$};
-  \node[mpi] (MPI_2) [right of = MPI_1] {M$_2$};
-  \node[mpi] (MPI_3) [right of = MPI_2] {M$_3$};
+  \node[mpi,fill=green!50] (MPI_2) [right of = MPI_1] {M$_2$};
+  \node[mpi,fill=green!50] (MPI_3) [right of = MPI_2] {M$_3$};
 
-  \node[mpi] (MPI_4) at (2,6) {$\mu_4$};
+  \node[mpi,fill=blue!50] (MPI_4) at (2,6) {$\mu_4$};
   \node[mpi] (MPI_5) [right of = MPI_4] {$\mu_5$};
-  \node[mpi] (MPI_6) [right of = MPI_5] {$\mu_6$};
-  \node[mpi] (MPI_7) [right of = MPI_6] {$\mu_7$};
+  \node[mpi,fill=blue!50] (MPI_6) [right of = MPI_5] {$\mu_6$};
+  \node[mpi,fill=blue!50] (MPI_7) [right of = MPI_6] {$\mu_7$};
 
   \node[openmp] (OpenMP_0) [below left = 2cm and 0cm of MPI_4] {$\mu_{4,0}$};
   \node[openmp] (OpenMP_1) [below right = 2cm and 0cm of MPI_4] {$\mu_{4,1}$};
@@ -28,8 +28,8 @@ sep=0pt}, cross/.default={2pt}}
   \node[openmp] (OpenMP_6) [below left = 2cm and 0cm of MPI_7] {$\mu_{7,0}$};
   \node[openmp] (OpenMP_7) [below right = 2cm and 0cm of MPI_7] {$\mu_{7,1}$};
 
-  \node[draw=none,fill=none] [above right = 0.5cm and -2.5cm of OpenMP_4] {OpenMP};
-  \node[draw=none,fill=none] [above right = 5.0cm and -2.2cm of OpenMP_4] {MPI};
+  \node[draw,fill=none] [above right = 0.5cm and -2.5cm of OpenMP_4] {OpenMP};
+  \node[draw,fill=none] [above right = 5.0cm and -2.2cm of OpenMP_4] {MPI};
 
   \draw [draw=red,-] (MPI_0) -- (MPI_1);
   \draw [draw=red,-] (MPI_1) -- (MPI_2);
