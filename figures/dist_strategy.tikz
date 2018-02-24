@@ -29,11 +29,13 @@ sep=0pt}, cross/.default={2pt}}
   \node[openmp] (OpenMP_7) [below right = 2cm and 0cm of MPI_7] {$\mu_{7,1}$};
 
   \node[draw,fill=none] [above right = 0.5cm and -2.5cm of OpenMP_4] {OpenMP};
-  \node[draw,fill=none] [above right = 5.0cm and -2.2cm of OpenMP_4] {MPI};
+  \node[draw,fill=none] [above right = 7.0cm and -2.2cm of OpenMP_4] {MPI};
+  \node[draw,fill=none] [above right = 7.0cm and -6.0cm of OpenMP_4] {MPI};
+  \node[draw,fill=none] [above right = 7.0cm and +2.0cm of OpenMP_4] {MPI};
 
-  \draw [draw=red,-] (MPI_0) -- (MPI_1);
-  \draw [draw=red,-] (MPI_1) -- (MPI_2);
-  \draw [draw=red,-] (MPI_2) -- (MPI_3);
+  \draw [draw=red,dashed,line width = 2mm, -] (MPI_0) -- (MPI_1);
+  \draw [draw=red,dashed,line width = 2mm,-] (MPI_1) -- (MPI_2);
+  \draw [draw=red,dashed,line width = 2mm,-] (MPI_2) -- (MPI_3);
 
   \draw [draw=red,-] (MPI_0) -- (MPI_4);
   \draw [draw=red,-] (MPI_1) -- (MPI_5);
@@ -52,7 +54,9 @@ sep=0pt}, cross/.default={2pt}}
   \draw [draw=red,-,dashed] (MPI_7) -- (OpenMP_6);
   \draw [draw=red,-,dashed] (MPI_7) -- (OpenMP_7);
 
-  \begin{scope}[xshift=2cm]
+  \draw[-{Latex[length=5mm,width=3mm]},black] (0,14) ..  controls ++(5,0) .. (6,11);
+
+  \begin{scope}[xshift=2cm,yshift=5cm]
    \node[fill=none, draw=red, minimum size = 2cm] (square_0) at (-6,8) {};
    \node[fill=red, draw=red, minimum size = 2cm] (square_1) at (-4,8) {};
    \node[fill=none, draw=red, minimum size = 2cm] (square_2) at (-6,6) {};

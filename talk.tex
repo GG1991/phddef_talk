@@ -318,6 +318,22 @@ design and a lot of computational power.
 %------------------------------------------------
 
 \begin{frame}
+\frametitle{What do we have}
+
+\begin{itemize}
+
+\item Intel Xeon Platinum chips, 165.888 processors, 11.5 PFlops
+\vspace{1cm}
+\item IBM Power 9 + nVidia Volta GPUs, 1.5 PFlops (same architecture as DOE’s Summit and Sierra, Oak Ridge and Lawrence Livermore)
+\item Intel Knight’s Hill (KNH), 0.5 PFlops (same architecture as DOE’s Theta and Aurora, Argonne)
+\item 64-bit ARMv8 with Fujitsu technology, 0.5 Pflops (same architecture of Post-K computer)
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
 \frametitle{The distributed strategy}
 
 \begin{figure}[!ht]
@@ -352,7 +368,7 @@ design and a lot of computational power.
 \resizebox{1.0\linewidth}{!}{
 \begin{tikzpicture}[node distance=4cm]
     \node[inner sep=0pt, scale=0.1] (rve) at (0,0) {\includegraphics[width=1.4\textwidth]{figures/periodic_exy.jpg}};
-    \node[inner sep=0pt, scale=1.0] (rve) at (3,0) {$t \approx \#_{gp-macro} \times t_{micro} $};
+    \node[inner sep=0pt, scale=1.0] (rve) at (3,0) {$t_{calc} \approx \#_{gp} \times t_{micro} $};
 \end{tikzpicture}
 }
 \end{figure}
@@ -511,8 +527,8 @@ Unknowns elimination
 \frametitle{Working Plan}
 
 \begin{itemize}
-\item \textcolor{OliveGreen}{Short term goal} : \textbf{Improve  what more can be done the microscopic code}. 
-For each boundary condition type and algorithm test :
+\item \textcolor{OliveGreen}{Short term goal} : \textbf{Search for an efficient implementation of the microscopic code}. 
+ For each boundary condition type and algorithm test :
  \begin{itemize}
   \item different solvers (pre-conditioners) and matrix storage formats.
   \item different architectures and parallelization strategies.
@@ -521,7 +537,12 @@ For each boundary condition type and algorithm test :
  \item \textcolor{Red}{Long term goal}: Solve a large problem with \textbf{Alya} :
  \begin{itemize}
   \item couple the microscopic code with \textbf{Alya}.
-  \item select a real size non-linear problem and show that the strategy works.
+  \item solve a real size non-linear problem :
+  \begin{itemize}
+  \item \textbf{10-100 millions elements} (macroscopic scale) 
+  \item \textbf{0.1-1 millions elements} (microscopic scale) 
+  \item using up to \textbf{100,000 cores}.
+  \end{itemize}
  \end{itemize}
 \end{itemize}
 
@@ -537,13 +558,10 @@ For each boundary condition type and algorithm test :
 
 \ganttgroup{Training}{1}{5}\\
 
-\ganttgroup{FE$^2$ method implementation}{6}{36} \\
-\ganttbar{\textbf{microscopic code}}{6}{36} \\
-\ganttbar{\textbf{macroscopic code}}{6}{36} \\
+\ganttbar[bar/.append style={fill=green}]{microscopic code}{6}{24} \\
 
-\ganttgroup{\textit{Alya}}{14}{36} \\
-\ganttbar{\textbf{microscopic code}}{14}{36} \\
-\ganttbar{Solve large problems}{25}{36} \\
+\ganttbar[bar/.append style={fill=red}]{coupling with Alya}{25}{29} \\
+\ganttbar[bar/.append style={fill=red}]{solve large problem}{27}{36} \\
 
 \ganttgroup{Thesis}{30}{36}
 
@@ -555,5 +573,17 @@ For each boundary condition type and algorithm test :
 \end{frame}
 
 %----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Proyects Involved}
+\begin{itemize}
+\item \textcolor{OliveGreen}{SHERLOC}: \textit{Structural health monitoring, manufacturing and repair technologies for life management of composite fuselage}
+\vspace{1cm}
+\item SILICOFCM : \textit{In Silico trials for drug tracing the effects of sarcomeric protein mutations leading to familial cardiomyopathy}
+\item IBM-BSC : \textit{Multi-physics/Multi-scale Simulations in Heterogeneous Supercomputing Architectures.}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
 
 \end{document} 
