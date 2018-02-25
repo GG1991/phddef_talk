@@ -94,6 +94,8 @@ sep=0pt}, cross/.default={2pt}}
     \node[scale=8] at (56,-4) {$\overline{\bm{\sigma}} = \langle \bm{\sigma} \rangle= \frac{1}{V} \int_{V} \bm{\sigma} \, dV$} ;
     \node[scale=8] at (56,28) {$\frac{1}{V} \int_{V} \bm{\epsilon} \, dV = \langle \bm{\epsilon} \rangle = \overline{\bm{\epsilon}}$} ;
 
+    \node[scale=.7] at (65,13) {\includegraphics[]{figures/periodic_exy.jpg}};
+
 \end{tikzpicture}
 
 \end{document}

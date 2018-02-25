@@ -12,7 +12,7 @@
     \foreach \y [count=\n]in {8,10,12,14}{ 
        \foreach \x [count=\n]in {8,10,12,14}{ 
          \begin{scope}[yshift = \y cm,xshift = \x cm,start chain=going right]
-           \draw (0,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
+           %\draw (0,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
            \filldraw[fill=black!40!white,draw=black] (1,1) circle (0.3cm);
          \end{scope}
        }

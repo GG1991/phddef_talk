@@ -9,6 +9,11 @@ sep=0pt}, cross/.default={2pt}}
   \tikzstyle{mpi} = [fill=red,draw=red,text=black,minimum size=1cm]
   \tikzstyle{openmp} = [fill=none,draw=red,text=black,minimum size=1cm]
 
+  \node[] at (10,15)  {Intel Xeon Platinum chips, 165.888 processors, 11.5 PFlops};
+  \node[] at (10,14.5) {IBM Power 9 + nVidia Volta GPUs, 1.5 PFlops};
+  \node[] at (10,14)   {Intel Knight’s Hill (KNH), 0.5 PFlops};
+  \node[] at (10,13.5) {64-bit ARMv8 with Fujitsu technology, 0.5 Pflops};
+
   \node[mpi,fill=green!50] (MPI_0) at (2,10) {M$_0$};
   \node[mpi] (MPI_1) [right of = MPI_0] {M$_1$};
   \node[mpi,fill=green!50] (MPI_2) [right of = MPI_1] {M$_2$};

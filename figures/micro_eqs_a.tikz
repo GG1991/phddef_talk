@@ -92,6 +92,7 @@ sep=0pt}, cross/.default={2pt}}
     ++(22,+2);
 
     \node[scale=8] at (50,-2) {micro-model};
+    \node[scale=.7] at (65,13) {\includegraphics[]{figures/periodic_exy.jpg}};
 
 \end{tikzpicture}
 
