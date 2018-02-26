@@ -6,13 +6,17 @@
 sep=0pt}, cross/.default={2pt}}
 
 \begin{tikzpicture}[node distance=4cm]
+
+  \node[scale=.15] at (-2,6) {\includegraphics[]{figures/periodic_exy.jpg}};
+  \draw[-{Latex[length=5mm,width=4mm]},line width=1.5mm] (-0,6) -- +(1,0);
+
   \tikzstyle{mpi} = [fill=red,draw=red,text=black,minimum size=1cm]
   \tikzstyle{openmp} = [fill=none,draw=red,text=black,minimum size=1cm]
 
-  \node[] at (10,15)  {Intel Xeon Platinum chips, 165.888 processors, 11.5 PFlops};
-  \node[] at (10,14.5) {IBM Power 9 + nVidia Volta GPUs, 1.5 PFlops};
-  \node[] at (10,14)   {Intel Knight’s Hill (KNH), 0.5 PFlops};
-  \node[] at (10,13.5) {64-bit ARMv8 with Fujitsu technology, 0.5 Pflops};
+  \node[] at (10,15)   {$\rightarrow$ Intel Xeon Platinum chips, 165.888 processors, 11.5 PFlops};
+  \node[] at (10,14.5) {$\rightarrow$ IBM Power 9 + nVidia Volta GPUs, 1.5 PFlops};
+  \node[] at (10,14)   {$\rightarrow$ Intel Knight’s Hill (KNH), 0.5 PFlops};
+  \node[] at (10,13.5) {$\rightarrow$ 64-bit ARMv8 with Fujitsu technology, 0.5 Pflops};
 
   \node[mpi,fill=green!50] (MPI_0) at (2,10) {M$_0$};
   \node[mpi] (MPI_1) [right of = MPI_0] {M$_1$};
@@ -59,7 +63,7 @@ sep=0pt}, cross/.default={2pt}}
   \draw [draw=red,-,dashed] (MPI_7) -- (OpenMP_6);
   \draw [draw=red,-,dashed] (MPI_7) -- (OpenMP_7);
 
-  \draw[-{Latex[length=5mm,width=3mm]},black] (0,14) ..  controls ++(5,0) .. (6,11);
+  \draw[-{Latex[length=5mm,width=4mm]},line width=1.5mm,black] (0,14) ..  controls ++(5,0) .. (6,11);
 
   \begin{scope}[xshift=2cm,yshift=5cm]
    \node[fill=none, draw=red, minimum size = 2cm] (square_0) at (-6,8) {};
